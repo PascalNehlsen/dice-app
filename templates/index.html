@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+    <title>{% block title %}
+        Start
+        {% endblock %} - Dice App with Flask</title>
+    {% endblock %}
+</head>
+<body style="background-color: {{ BG_COLOR }};">
+    <div id="navbar" class="default-container">
+        by {{ OWNER }}
+    </div>
+    <div id="content">
+        {% block content %}
+        <h1>Welcome to the Dice App!</h1>
+        <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-label="Blank dice with question mark">
+            <rect x="5" y="5" width="70" height="70" rx="12" fill="{{ DICE_COLOR }}" stroke="#222" stroke-width="4"/>
+            <text x="40" y="45" text-anchor="middle" font-size="40" font-family="Arial, sans-serif" fill="#222" dominant-baseline="middle">?</text>
+        </svg>
+        <p>Click "Roll the Dice" to roll the dice.</p>
+        <a href="/dice"><button>Roll the Dice</button></a>
+        {% endblock %}</div>
+    <div id="footer" class="default-container">
+        by {{ OWNER }}
+    </div>
+</body>
+</html>

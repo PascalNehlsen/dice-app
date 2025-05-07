@@ -1,0 +1,60 @@
+{% extends "index.html" %}
+{% block title %}Result{% endblock %}
+{% block content %}
+    <h1>Result</h1>
+    {% if result == 1 %}
+    <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-label="Dice">
+        <rect x="5" y="5" width="70" height="70" rx="12" fill="{{ DICE_COLOR }}" stroke="#222" stroke-width="4"/>
+        <circle cx="40" cy="40" r="7" fill="#222"/>
+    </svg>
+    <p>You rolled a {{ result }}!</p>
+    {% elif result == 2 %}
+    <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-label="Dice showing 2">
+        <rect x="5" y="5" width="70" height="70" rx="12" fill="{{ DICE_COLOR }}" stroke="#222" stroke-width="4"/>
+        <circle cx="24" cy="24" r="7" fill="#222"/>
+        <circle cx="56" cy="56" r="7" fill="#222"/>
+    </svg>
+    <p>You rolled a {{ result }}!</p>
+    {% elif result == 3 %}
+    <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-label="Dice showing 3">
+        <rect x="5" y="5" width="70" height="70" rx="12" fill="{{ DICE_COLOR }}" stroke="#222" stroke-width="4"/>
+        <circle cx="24" cy="24" r="7" fill="#222"/>
+        <circle cx="40" cy="40" r="7" fill="#222"/>
+        <circle cx="56" cy="56" r="7" fill="#222"/>
+    </svg>
+    <p>You rolled a {{ result }}!</p>
+    {% elif result == 4 %}
+    <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-label="Dice showing 4">
+        <rect x="5" y="5" width="70" height="70" rx="12" fill="{{ DICE_COLOR }}" stroke="#222" stroke-width="4"/>
+        <circle cx="24" cy="24" r="7" fill="#222"/>
+        <circle cx="56" cy="24" r="7" fill="#222"/>
+        <circle cx="24" cy="56" r="7" fill="#222"/>
+        <circle cx="56" cy="56" r="7" fill="#222"/>
+    </svg>
+    <p>You rolled a {{ result }}!</p>
+    {% elif result == 5 %}
+    <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-label="Dice showing 5">
+        <rect x="5" y="5" width="70" height="70" rx="12" fill="{{ DICE_COLOR }}" stroke="#222" stroke-width="4"/>
+        <circle cx="24" cy="24" r="7" fill="#222"/>
+        <circle cx="56" cy="24" r="7" fill="#222"/>
+        <circle cx="24" cy="56" r="7" fill="#222"/>
+        <circle cx="56" cy="56" r="7" fill="#222"/>
+        <circle cx="40" cy="40" r="7" fill="#222"/>
+    </svg>
+    <p>You rolled a {{ result }}!</p>
+    {% elif result == 6 %}
+    <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-label="Dice showing 6">
+        <rect x="5" y="5" width="70" height="70" rx="12" fill="{{ DICE_COLOR }}" stroke="#222" stroke-width="4"/>
+        <circle cx="24" cy="24" r="7" fill="#222"/>
+        <circle cx="24" cy="40" r="7" fill="#222"/>
+        <circle cx="24" cy="56" r="7" fill="#222"/>
+        <circle cx="56" cy="24" r="7" fill="#222"/>
+        <circle cx="56" cy="40" r="7" fill="#222"/>
+        <circle cx="56" cy="56" r="7" fill="#222"/>
+    </svg>
+    <p>You rolled a {{ result }}!</p>
+    {% else %}
+    <p>No dice found :(</p>
+    {% endif %}
+    <a href="/"><button>Play again</button></a>
+{% endblock %}
