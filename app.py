@@ -16,3 +16,10 @@ def init():
 def dice():
     result: int = random.randint(1, 6)
     return render_template('dice.html', result=result, OWNER=OWNER, BG_COLOR=BG_COLOR, DICE_COLOR=DICE_COLOR)
+
+@app.route("/proof")
+def proof():
+    return "proof"
+
+if __name__ == "__main__":
+    app.run(debug=True)
