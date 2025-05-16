@@ -10,4 +10,4 @@ RUN pip install -r ./requirements.txt
 
 EXPOSE ${PORT}
 
-ENTRYPOINT ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT} dice:app"]
+ENTRYPOINT ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT} app:app"]
