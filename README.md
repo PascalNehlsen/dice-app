@@ -9,6 +9,7 @@ A minimal Flask web application that displays a dice as an SVG, with customizabl
 - [Quickstart](#quickstart)
 - [Usage](#usage)
     - [Run with Docker](#run-with-docker)
+    - [Deployment](#deployment)
 
 ## Features
 
@@ -81,3 +82,29 @@ A minimal Flask web application that displays a dice as an SVG, with customizabl
    ```bash
     http://localhost:5000/
    ```
+
+### Deployment
+
+This GitHub Actions workflow automates the process of building, pushing, and deploying a Dockerized application whenever changes are pushed to the `main` branch.
+
+#### Workflow Overview
+- Trigger: The workflow is triggered on pushes to the main branch.
+- Environment Variables: Utilizes environment variables for registry and image configuration.
+
+#### Jobs
+Build:
+
+**Steps:**
+- Set Up Docker Buildx: Prepares the environment for building multi-platform Docker images.
+- Log into GHCR: Authenticates with the GitHub Container Registry using a Personal Access Token.
+- Extract Metadata: Gathers Docker image metadata for tagging.
+- Create .env File: Generates a .env file from an example and appends the current commit SHA.
+- Build and Push Docker Image: Builds the Docker image and pushes it to GHCR with multiple tags.
+- Upload Artifacts: Stores the .env and docker-compose.yml files for use in the deployment job.
+
+Deploy:
+**Steps:**
+- Checkout Code: Retrieves the latest code from the repository.
+- Download Artifacts: Fetches the deployment files from the build job.
+- Copy Files via SCP: Transfers the .env and docker-compose.yml files to the remote server.
+- Run Docker Commands via SSH: Connects to the remote server to update the Docker containers using docker-compose.
