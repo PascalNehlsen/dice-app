@@ -1,0 +1,11 @@
+services:
+  backend:
+    image: ghcr.io/pascalnehlsen/dice-app:${GITHUB_SHA}
+    env_file:
+      - .env
+    volumes:
+      - ./app:/app
+      - flask-logs:/app/logs
+    ports:
+      - 5000:5000
+    restart: unless-stopped
