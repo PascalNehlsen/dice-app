@@ -4,7 +4,7 @@ WORKDIR /app
 
 ENV PORT=5000
 
-COPY . ${WORKDIR}
+COPY dice-app /app
 
 RUN pip install -r ./requirements.txt
 
