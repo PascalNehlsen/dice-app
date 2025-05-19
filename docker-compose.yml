@@ -4,7 +4,7 @@ services:
     env_file:
       - .env
     volumes:
-      - ./app:/app
+      - ./dice-app:/app
     ports:
       - 5000:5000
     restart: unless-stopped
