@@ -1,6 +1,6 @@
 services:
   backend:
-    image: ghcr.io/pascalnehlsen/dice-app:${GITHUB_SHA}
+    image: ghcr.io/pascalnehlsen/dice-app:latest
     env_file:
       - .env
     volumes:
